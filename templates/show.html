@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/Chart.js"></script>
+
+</head>
+<body>
+    <h1>秦皇岛港口水文数据可视化</h1>
+
+    <script>
+    var data = {
+        labels : ["1m","2m","3m","4m","5m","6m","7m"],
+        datasets : [
+            {
+                fillColor : "rgba(220,220,220,0.5)",
+                strokeColor : "rgba(220,220,220,1)",
+                data : [65,59,90,81,56,55,40]
+            },
+            {
+                fillColor : "rgba(151,187,205,0.5)",
+                strokeColor : "rgba(151,187,205,1)",
+                data : [28,48,40,19,96,27,100]
+            }
+        ]
+    }
+
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myNewChart = new Chart(ctx).Line(data);
+    </script>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+</body>
+</html>
