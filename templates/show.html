@@ -1,36 +1,279 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="../static/Chart.js"></script>
-
+    <title>数据可视化</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
+
+<div class="container">
     <h1>秦皇岛港口水文数据可视化</h1>
+    <div class="page-header">
+        <h2>数据展示</h2>
+    </div>
+    <div class="row">
+        <div class="col-xs-8">
+            <p>{{ post.datetime }}
+            </p>
+        </div>
+        <div class="col-xs-4">
+            <button type="button" id="next_btn" class="btn btn-default">点我查看下一时刻</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+        <table class="table-bordered">
+            <tr>
+                <th>水深（米）</th>
+                <th>1.5</th>
+                <th>1.5</th>
+                <th>1.5</th>
+                <th>1.5</th>
+                <th>1.5</th>
+                <th>1.5</th>
+                <th>1.5</th>
+                <th>1.5</th>
+                <th>1.5</th>
+                <th>1.5</th>
+                <th>1.5</th>
+                <th>1.5</th>
+            </tr>
+            <tr>
+                <th>水流方向（度）</th>
+                <th>{{ post.direction1 }}</th>
+                <th>{{ post.direction2 }}</th>
+                <th>{{ post.direction3 }}</th>
+                <th>{{ post.direction4 }}</th>
+                <th>{{ post.direction5 }}</th>
+                <th>{{ post.direction6 }}</th>
+                <th>{{ post.direction7 }}</th>
+                <th>{{ post.direction8 }}</th>
+                <th>{{ post.direction9 }}</th>
+                <th>{{ post.direction10 }}</th>
+                <th>{{ post.direction11 }}</th>
+                <th>{{ post.direction12 }}</th>
+            </tr>
+            <tr>
+                <th>水流速度（cm/s）</th>
+                <th>{{ post.velocity1 }}</th>
+                <th>{{ post.velocity2 }}</th>
+                <th>{{ post.velocity3 }}</th>
+                <th>{{ post.velocity4 }}</th>
+                <th>{{ post.velocity5 }}</th>
+                <th>{{ post.velocity6 }}</th>
+                <th>{{ post.velocity7 }}</th>
+                <th>{{ post.velocity8 }}</th>
+                <th>{{ post.velocity9 }}</th>
+                <th>{{ post.velocity10 }}</th>
+                <th>{{ post.velocity11 }}</th>
+                <th>{{ post.velocity12 }}</th>
+            </tr>
+        </table>
+    </div>
+    </div>
 
-    <script>
-    var data = {
-        labels : ["1m","2m","3m","4m","5m","6m","7m"],
-        datasets : [
-            {
-                fillColor : "rgba(220,220,220,0.5)",
-                strokeColor : "rgba(220,220,220,1)",
-                data : [65,59,90,81,56,55,40]
-            },
-            {
-                fillColor : "rgba(151,187,205,0.5)",
-                strokeColor : "rgba(151,187,205,1)",
-                data : [28,48,40,19,96,27,100]
-            }
-        ]
-    }
+    <div class="page-header">
+        <h2>曲线图</h2>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <canvas id="myLineChart" width="900" height="400"></canvas>
+        </div>
+    </div>
 
-    var ctx = document.getElementById("myChart").getContext("2d");
-    var myNewChart = new Chart(ctx).Line(data);
-    </script>
+    <div class="page-header">
+        <h2>柱状图</h2>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <canvas id="myBarChart" width="900" height="400"></canvas>
+        </div>
+    </div>
 
-    <canvas id="myChart" width="400" height="400"></canvas>
+    <div class="page-header">
+        <h2>雷达图</h2>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <canvas id="myPieChart1" width="300" height="300"></canvas>
+        </div>
+        <div class="col-xs-4">
+            <canvas id="myPieChart2" width="300" height="300"></canvas>
+        </div>
+        <div class="col-xs-4">
+            <canvas id="myPieChart3" width="300" height="300"></canvas>
+        </div>
+    </div>
+
+</div>
+
+<script src="/static/js/bootstrap.min.js"></script>
+<script>
+    $('#next_btn').click(function () {
+
+      })
+</script>
+
+<script src="/static/js/Chart.min.js"></script>
+
+<script>
+    data_vel = [{{ post.velocity1 }}, {{ post.velocity2 }}, {{ post.velocity3 }}, {{ post.velocity4 }}, {{ post.velocity5 }}, {{ post.velocity6 }}, {{ post.velocity7 }}, {{ post.velocity8 }}, {{ post.velocity9 }}, {{ post.velocity10 }}, {{ post.velocity11 }}, {{ post.velocity12 }}, {{ post.velocity13 }}, {{ post.velocity14 }}, {{ post.velocity15 }}]
+    data_dir = [{{ post.direction1 }}, {{ post.direction2 }}, {{ post.direction3 }}, {{ post.direction4 }}, {{ post.direction5 }}, {{ post.direction6 }}, {{ post.direction7 }}, {{ post.direction8 }}, {{ post.direction9 }}, {{ post.direction10 }}, {{ post.direction11 }}, {{ post.direction12 }}, {{ post.direction13 }}, {{ post.direction14 }}, {{ post.direction15 }}]
+
+    var ctx1 = document.getElementById("myLineChart");
+    var myLineChart = new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"],
+            datasets: [
+                {
+                    label: '流速',
+                    data: data_vel,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)'
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: '方向',
+                    data: data_dir,
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 1
+
+                }]
+        },
+        options: {
+            responsive: false
+        }
+    });
+
+    var ctx2 = document.getElementById("myBarChart");
+    var myBarChart = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"],
+            datasets: [
+                {
+                    label: "水流-深度变化图",
+                    data: data_vel,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(151, 187, 205, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(151, 187, 205, 0.2)',
+                        'rgba(255, 99, 132, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(151, 187, 205, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(151, 187, 205, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+        },
+        options: {
+            responsive: false
+        }
+    });
+
+    var ctx3 = document.getElementById("myPieChart1");
+    var myPieChart1 = new Chart(ctx3, {
+        type: 'pie',
+        data: {
+            labels: ["深度为1m的水流方向"],
+            datasets: [
+                {
+                    data: [{{ post.direction1 }},360-{{ post.direction1 }}],
+                    backgroundColor: [
+                        "#36A2EB",
+                        "#ffffff"
+                    ],
+                    borderWidth: 1
+                }
+            ]},
+        options: {
+            responsive: false
+        }
+    });
+
+    var ctx4 = document.getElementById("myPieChart2");
+    var myPieChart2 = new Chart(ctx4, {
+        type: 'pie',
+        data: {
+            labels: ["深度为7的水流方向"],
+            datasets: [
+                {
+                    data: [{{ post.direction7 }},360-{{ post.direction7 }}],
+                    backgroundColor: [
+                        "#36A2EB",
+                        "#ffffff"
+                    ],
+                    borderWidth: 1
+                }
+            ]},
+        options: {
+            responsive: false
+        }
+    });
+
+    var ctx5 = document.getElementById("myPieChart3");
+    var myPieChart3 = new Chart(ctx5, {
+        type: 'pie',
+        data: {
+            labels: ["深度为15的水流方向"],
+            datasets: [
+                {
+                    data: [{{ post.direction15 }},360-{{ post.direction15 }}],
+                    backgroundColor: [
+                        "#36A2EB",
+                        "#ffffff"
+                    ],
+                    borderWidth: 1
+                }
+            ]},
+        options: {
+            responsive: false
+        }
+    });
+
+</script>
+
+
 
 </body>
 </html>

@@ -20,5 +20,5 @@ from qinhuangdao import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
-
+    url(r'^(?P<my_args>\d+)/$', views.detail, name='detail'),
 ]
