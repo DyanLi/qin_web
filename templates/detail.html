@@ -88,18 +88,22 @@
     </div>
     <br/>
     <div class="row">
-        <div class="col-xs-2"></div>
+        <div class="col-xs-2">
+            <p align="center"> 当前为第{{ current_page }}个时刻</p>
+        </div>
+        <div class="col-xs-1"></div>
         <div class="col-xs-1">
-            <button type="button" id="next_btn" class="btn btn-default">首个时刻</button>
+            <p><a class="btn btn-default" href="{% url 'qinhuangdao:detail' 1 %}" role="button">首个时刻</a></p>
         </div>
         <div class="col-xs-1">
-            <button type="button" id="next_btn" class="btn btn-default">上一时刻</button>
+            <p><a class="btn btn-default" href="{% url 'qinhuangdao:detail' before_page %}" role="button">上一时刻</a></p>
+{#            <button type="button" id="next_btn" class="btn btn-default">上一时刻</button>#}
         </div>
         <div class="col-xs-1">
-            <button type="button" id="next_btn" class="btn btn-default">下一时刻</button>
+            <p><a class="btn btn-default" href="{% url 'qinhuangdao:detail' next_page %}" role="button">下一时刻</a></p>
         </div>
         <div class="col-xs-1">
-            <button type="button" id="next_btn" class="btn btn-default">末尾时刻</button>
+            <p><a class="btn btn-default" href="{% url 'qinhuangdao:detail' end_page %}" role="button">末尾时刻</a></p>
         </div>
     </div>
     <br/>
@@ -148,78 +152,90 @@
     </div>
     <div class="row">
         <div class="col-xs-2">
-            <canvas id="myPieChart1" width="160" height="160"></canvas>
+            <canvas id="myPieChart1" width="200" height="200"></canvas>
         </div>
+
+        <div class="col-xs-1"></div>
+
+        <div class="col-xs-2">
+            <canvas id="myPieChart2" width="200" height="200"></canvas>
+        </div>
+
+        <div class="col-xs-1"></div>
+
+        <div class="col-xs-2">
+            <canvas id="myPieChart3" width="200" height="200"></canvas>
+        </div>
+
+        <div class="col-xs-1"></div>
+
+        <div class="col-xs-2">
+            <canvas id="myPieChart4" width="200" height="200"></canvas>
+        </div>
+
     </div>
-    <div class="row">
-    <div class="col-xs-2">
-        <canvas id="myPieChart2" width="160" height="160"></canvas>
-    </div>
-    </div>
+    <hr/>
+
     <div class="row">
         <div class="col-xs-2">
-            <canvas id="myPieChart3" width="160" height="160"></canvas>
+            <canvas id="myPieChart5" width="200" height="200"></canvas>
+        </div>
+        <div class="col-xs-1"></div>
+
+        <div class="col-xs-2">
+            <canvas id="myPieChart6" width="200" height="200"></canvas>
+        </div>
+        <div class="col-xs-1"></div>
+
+        <div class="col-xs-2">
+            <canvas id="myPieChart7" width="200" height="200"></canvas>
+        </div>
+        <div class="col-xs-1"></div>
+
+        <div class="col-xs-2">
+            <canvas id="myPieChart8" width="200" height="200"></canvas>
         </div>
     </div>
+    <hr/>
+
     <div class="row">
         <div class="col-xs-2">
-            <canvas id="myPieChart4" width="160" height="160"></canvas>
+            <canvas id="myPieChart9" width="200" height="200"></canvas>
         </div>
+        <div class="col-xs-1"></div>
+
+        <div class="col-xs-2">
+            <canvas id="myPieChart10" width="200" height="200"></canvas>
+        </div>
+        <div class="col-xs-1"></div>
+
+        <div class="col-xs-2">
+            <canvas id="myPieChart11" width="200" height="200"></canvas>
+        </div>
+        <div class="col-xs-1"></div>
+
+        <div class="col-xs-2">
+            <canvas id="myPieChart12" width="200" height="200"></canvas>
+        </div>
+
     </div>
+    <hr/>
+
     <div class="row">
         <div class="col-xs-2">
-            <canvas id="myPieChart5" width="160" height="160"></canvas>
+            <canvas id="myPieChart13" width="200" height="200"></canvas>
         </div>
-    </div>
-    <div class="row">
+        <div class="col-xs-1"></div>
+
         <div class="col-xs-2">
-            <canvas id="myPieChart6" width="160" height="160"></canvas>
+            <canvas id="myPieChart14" width="200" height="200"></canvas>
         </div>
-    </div>
-    <div class="row">
+        <div class="col-xs-1"></div>
+
         <div class="col-xs-2">
-            <canvas id="myPieChart7" width="160" height="160"></canvas>
+            <canvas id="myPieChart15" width="200" height="200"></canvas>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2">
-            <canvas id="myPieChart8" width="160" height="160"></canvas>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2">
-            <canvas id="myPieChart9" width="160" height="160"></canvas>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2">
-            <canvas id="myPieChart10" width="160" height="160"></canvas>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2">
-            <canvas id="myPieChart11" width="160" height="160"></canvas>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2">
-            <canvas id="myPieChart12" width="160" height="160"></canvas>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2">
-            <canvas id="myPieChart13" width="160" height="160"></canvas>
-        </div>
-    </div>
-    <div class="row">
-    <div class="col-xs-2">
-        <canvas id="myPieChart14" width="160" height="160"></canvas>
-    </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2">
-            <canvas id="myPieChart15" width="160" height="160"></canvas>
-        </div>
+        <div class="col-xs-1"></div>
     </div>
 
 </div>
@@ -234,15 +250,6 @@
 <script src="/static/js/bootstrap.min.js"></script>
 
 <script src="/static/js/Chart.min.js"></script>
-
-<script>
-
-  $('#next_btn').click(function () {
-
-      })
-
-
-</script>
 
 <script>
     data_vel = [{{ post.velocity1 }}, {{ post.velocity2 }}, {{ post.velocity3 }}, {{ post.velocity4 }}, {{ post.velocity5 }}, {{ post.velocity6 }}, {{ post.velocity7 }}, {{ post.velocity8 }}, {{ post.velocity9 }}, {{ post.velocity10 }}, {{ post.velocity11 }}, {{ post.velocity12 }}, {{ post.velocity13 }}, {{ post.velocity14 }}, {{ post.velocity15 }}]
