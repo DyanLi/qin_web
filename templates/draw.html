@@ -1,0 +1,87 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据可视化矢量特征</title>
+    <script >
+    function draw(id)
+    {
+        var data_vel = [{{ post.velocity1 }}, {{ post.velocity2 }}, {{ post.velocity3 }}, {{ post.velocity4 }}, {{ post.velocity5 }}, {{ post.velocity6 }}, {{ post.velocity7 }}, {{ post.velocity8 }}, {{ post.velocity9 }}, {{ post.velocity10 }}, {{ post.velocity11 }}, {{ post.velocity12 }}, {{ post.velocity13 }}, {{ post.velocity14 }}, {{ post.velocity15 }}]
+        var data_dir = [{{ post.direction1 }}, {{ post.direction2 }}, {{ post.direction3 }}, {{ post.direction4 }}, {{ post.direction5 }}, {{ post.direction6 }}, {{ post.direction7 }}, {{ post.direction8 }}, {{ post.direction9 }}, {{ post.direction10 }}, {{ post.direction11 }}, {{ post.direction12 }}, {{ post.direction13 }}, {{ post.direction14 }}, {{ post.direction15 }}]
+
+        var canvas = document.getElementById(id);
+        var context = canvas.getContext('2d');
+        context.fillStyle = "#EEEEFF";
+        context.fillRect(0, 0, 1200, 2000);
+        context.lineCap = "round";
+        for(var i=0;i<15;i++) {
+            context.fillStyle = "#EEEEFF";
+            context.beginPath();
+            context.lineWidth = 3;
+            context.arc(65, 60 + i * 120, 50, 0, Math.PI * 2, true);
+            context.fill();
+            context.stroke();
+            context.beginPath();
+            context.moveTo(65, 10 + i * 120);
+            context.lineTo(65, 16 + i * 120);
+            context.moveTo(115, 60 + i * 120);
+            context.lineTo(109, 60 + i * 120);
+            context.moveTo(65, 110 + i * 120);
+            context.lineTo(65, 104 + i * 120);
+            context.moveTo(15, 60 + i * 120);
+            context.lineTo(21, 60 + i * 120);
+            context.lineWidth = 3;
+            context.moveTo(65, 60 + i * 120);
+            context.lineTo(65 + Math.cos((data_dir[i]-90) * Math.PI / 180) * 50, 60 + i * 120 - Math.sin((data_dir[i]-90) * Math.PI / 180) * 50);
+            context.stroke();
+            context.closePath();
+
+            context.beginPath();
+            context.fillStyle = "#EEEEFF";
+            context.arc(65, 60+i * 120, 3, 0, Math.PI * 2, true);
+            context.fill();
+            context.stroke();
+            context.closePath();
+
+            context.fillStyle = "#000000";
+            context.font = "8px Arial";
+            context.fillText("0", 62, 26 + i * 120);
+            context.fillText("180", 56, 102 + i * 120);
+            context.fillText("90", 96, 65 + i * 120);
+            context.fillText("270", 22, 65 + i * 120);
+
+            context.fillStyle = "#000000";
+            context.font = "18px Arial";
+            var my_index = i + 1;
+            var my_label = "方向<--"+my_index+"号传感器-->流速";
+            context.fillText(my_label, 160, 65 + i * 120);
+            context.fillText(data_vel[i]+"mm/s", 960, 65 + i * 120);
+
+
+            context.rect(440, 30 + i * 120, 450, 50);
+            context.stroke();
+            context.fillStyle = "#FOFOFO";
+            if (data_vel[i]<2000){
+                context.fillRect(440, 30 + i * 120, data_vel[i]/2000*450, 50);
+            }else {
+                context.fillRect(440, 30 + i * 120, 450, 50);
+            }
+
+        }
+
+    }
+
+    </script>
+</head>
+<body onload="draw('canvas');">
+
+<header class="container" id="space">
+    <h1>秦皇岛港口水文数据可视化--矢量特征</h1>
+</header>
+
+<canvas id="canvas" width="4000" height="2000" ></canvas>
+
+</body>
+</html>
