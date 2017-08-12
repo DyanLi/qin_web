@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/WYXweb.iml" filepath="$PROJECT_DIR$/.idea/WYXweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../qin_web/.idea/qin_web.iml" filepath="$PROJECT_DIR$/../qin_web/.idea/qin_web.iml" />
     </modules>
   </component>
 </project>

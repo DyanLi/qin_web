@@ -3,7 +3,7 @@
 from datetime import datetime
 
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "WYXweb.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "qin_web.settings")
 
 import django
 django.setup()

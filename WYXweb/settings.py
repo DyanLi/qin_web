@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'WYXweb.wsgi.application'
+WSGI_APPLICATION = 'qin_web.wsgi.application'
 
 
 # Database
