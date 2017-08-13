@@ -1,0 +1,41 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>数据可视化</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body>
+
+
+{% block title %}{% endblock %}
+
+{% block content %}{% endblock %}
+
+<hr/>
+<footer class="container-fluid">
+    <div class="row">
+        <div class="col-xs-3 text-right">
+            <p><a class="btn btn-link" href="{% url 'qinhuangdao:index'%}" role="button">回到主页</a></p>
+        </div>
+        <div class="col-xs-2"></div>
+        <div class="col-xs-*">
+            <p>Copyright &copy; 北京科技大学 2017 </p>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery library 3.0.0-->
+<script src="/static/js/jquery.min.js"></script>
+
+<!-- Tether 1.2.0-->
+<script src="/static/js/tether.min.js"></script>
+
+<script src="/static/js/bootstrap.min.js"></script>
+
+</body>
+</html>

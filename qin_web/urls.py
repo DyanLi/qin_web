@@ -1,4 +1,4 @@
-"""WYXweb URL Configuration
+"""qin_web URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/dev/topics/http/urls/
@@ -18,7 +18,7 @@ from django.contrib import admin
 from qinhuangdao import views
 
 urlpatterns = [
-    # url(r'^$', views.index, name='index'),
+    url(r'^$', views.index),
     url(r'^qinhuangdao/',include('qinhuangdao.urls',namespace='qinhuangdao')),
     url(r'^admin/', admin.site.urls),
     # url(r'^detail/(?P<my_args>\d+)/$', views.detail, name='detail'),

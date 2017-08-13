@@ -1,18 +1,15 @@
-{% load staticfiles %}
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>数据可视化时间特征</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Bootstrap -->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
-</head>
-<body>
-<header class="container" id="space">
+
+{% block title %}
+<header class="container-fluid text-center">
     <h1>秦皇岛港口水文数据可视化--时间分布特征</h1>
 </header>
+<br/>
+{% endblock %}
+
+
+{% block content %}
 
 <div class="container">
     <div class="page-header">
@@ -25,14 +22,6 @@
         </div>
     </div>
 </div>
-
-<!-- jQuery library 3.0.0-->
-<script src="/static/js/jquery.min.js"></script>
-
-<!-- Tether 1.2.0-->
-<script src="/static/js/tether.min.js"></script>
-
-<script src="/static/js/bootstrap.min.js"></script>
 
 <script src="/static/js/Chart.min.js"></script>
 
@@ -84,6 +73,4 @@
     });
 </script>
 
-
-</body>
-</html>
+{% endblock %}

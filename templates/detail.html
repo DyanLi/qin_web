@@ -1,34 +1,30 @@
-{% load staticfiles %}
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>数据可视化空间特征</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Bootstrap -->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
-</head>
-<body>
-
-<header class="container" id="space">
+{% block title %}
+<header class="container-fluid text-center">
     <h1>秦皇岛港口水文数据可视化--空间分布特征</h1>
 </header>
+<br/>
+{% endblock %}
 
 
+{% block content %}
 <div class="container">
     <div class="page-header">
         <h2>数据展示</h2>
     </div>
+
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
             <h5>当前时刻：{{ post.datetime }}</h5>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-xs-12">
-        <table class="table-bordered">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-*">
+            <table class="table-bordered">
             <tr>
                 <th>水深（米）</th>
                 <th>1.5</th>
@@ -84,13 +80,12 @@
                 <th>{{ post.velocity15 }}</th>
             </tr>
         </table>
-    </div>
+        </div>
     </div>
     <br/>
+
     <div class="row">
-        <div class="col-xs-2">
-            <p align="center"> 当前为第{{ current_page }}个时刻</p>
-        </div>
+        <div class="col-xs-2"></div>
         <div class="col-xs-1"></div>
         <div class="col-xs-1">
             <p><a class="btn btn-default" href="{% url 'qinhuangdao:detail' 1 %}" role="button">首个时刻</a></p>
@@ -107,8 +102,11 @@
         </div>
     </div>
     <br/>
+
     <div class="row">
-        <p>注：下面各图展示了当前时刻下不同深度的水流速度和方向的变化情况。</p>
+        <div class="col-xs-12">
+            <p>注：下面各图展示了当前时刻下不同深度的水流速度和方向的变化情况。</p>
+        </div>
     </div>
 
     <div class="page-header">
@@ -240,14 +238,7 @@
 
 </div>
 
-
-<!-- jQuery library 3.0.0-->
-<script src="/static/js/jquery.min.js"></script>
-
-<!-- Tether 1.2.0-->
-<script src="/static/js/tether.min.js"></script>
-
-<script src="/static/js/bootstrap.min.js"></script>
+<br/>
 
 <script src="/static/js/Chart.min.js"></script>
 
@@ -708,5 +699,5 @@
 
 </script>
 
-</body>
-</html>
+{% endblock %}
+

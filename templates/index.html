@@ -1,56 +1,41 @@
-{% load staticfiles %}
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>数据可视化</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
-</head>
-<body>
 
-<header class="container">
+{% block title %}
+<header class="container-fluid text-center">
     <h1>秦皇岛港口水文数据可视化</h1>
 </header>
+<br/>
+{% endblock %}
 
+
+{% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-xs-12">
-            <p>水流传感器阵列数据具有下述的主要特征，根据其特征可以有针对性地进行可视化：</p>
-            <ul>
-                <li>
-                    <h5>空间分布特征</h5>
-                    <p>水流传感器是一组传感器的集合。它们发布在水下的不同深度（垂直方向，或者叫做z方向），形成一个均匀的线状的传感器阵列。不同深度传感器的值具有空间分布特征，需要了解同一个时刻不同深度层面的水流速度情况。</p>
-                    <p><a class="btn btn-default" href="{% url 'qinhuangdao:detail' 1%}" role="button">查看空间分布&raquo;</a></p>
-                    <br/><br/>
-                </li>
-                <li>
-                    <h5>矢量特征</h5>
-                    <p>水流速度实际上包括2个方面的数据即方向角和速率。其中，方向角是水流的方向，正北方向定义为0度；速率是水流的快慢，单位是毫米每秒(mm/s)。因此，水流速度是一个标量。除了分解为方向角和速率之外，水流速度也可以用两个正交方向（如东西方向和南北方向）的投影来表示，在投影中允许出现负值。</p>
-                    <p><a class="btn btn-default" href="{% url 'qinhuangdao:draw' 1%}" role="button">查看矢量特征&raquo;</a></p>
-                    <br/><br/>
-                </li>
-                <li>
-                    时间分布特征
-                    <p>每一个水流传感器还具有时间分布特征，它们周期性（例如10分钟一次）的采集数据，这些数据汇报到后台的数据库中，因此同一个传感器不同时刻间的数据具有时间分布特征，反映了同一深度层面水流速度的动态改变。</p>
-                    <p><a class="btn btn-default" href="{% url 'qinhuangdao:show'%}" role="button">查看时间分布&raquo;</a></p>
-                    <br/><br/>
-                </li>
-            </ul>
-        </div>
+    <div class="col-xs-12">
+        <p>水流传感器阵列数据具有下述的主要特征，根据其特征可以有针对性地进行可视化：</p>
+        <ul>
+            <li>
+                <h5>空间分布特征</h5>
+                <p>水流传感器是一组传感器的集合。它们发布在水下的不同深度（垂直方向，或者叫做z方向），形成一个均匀的线状的传感器阵列。不同深度传感器的值具有空间分布特征，需要了解同一个时刻不同深度层面的水流速度情况。</p>
+                <p><a class="btn btn-default" href="{% url 'qinhuangdao:detail' 1%}" role="button">查看空间分布&raquo;</a></p>
+                <br/>
+            </li>
+            <li>
+                <h5>矢量特征</h5>
+                <p>水流速度实际上包括2个方面的数据即方向角和速率。其中，方向角是水流的方向，正北方向定义为0度；速率是水流的快慢，单位是毫米每秒(mm/s)。因此，水流速度是一个标量。除了分解为方向角和速率之外，水流速度也可以用两个正交方向（如东西方向和南北方向）的投影来表示，在投影中允许出现负值。</p>
+                <p><a class="btn btn-default" href="{% url 'qinhuangdao:draw' 1%}" role="button">查看矢量特征&raquo;</a></p>
+                <br/>
+            </li>
+            <li>
+                时间分布特征
+                <p>每一个水流传感器还具有时间分布特征，它们周期性（例如10分钟一次）的采集数据，这些数据汇报到后台的数据库中，因此同一个传感器不同时刻间的数据具有时间分布特征，反映了同一深度层面水流速度的动态改变。</p>
+                <p><a class="btn btn-default" href="{% url 'qinhuangdao:show'%}" role="button">查看时间分布&raquo;</a></p>
+                <br/>
+            </li>
+        </ul>
     </div>
 </div>
+</div>
+{% endblock %}
 
-<!-- jQuery library 3.0.0-->
-<script src="/static/js/jquery.min.js"></script>
-
-<!-- Tether 1.2.0-->
-<script src="/static/js/tether.min.js"></script>
-
-<script src="/static/js/bootstrap.min.js"></script>
-
-
-</body>
-</html>
