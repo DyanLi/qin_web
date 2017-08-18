@@ -14,18 +14,14 @@
 
 
 成果展示：
-### 1,网站主页
+1. 网站主页
 http://dyanli.pythonanywhere.com/
 
-### 2,空间特征可视化
-http://dyanli.pythonanywhere.com/qinhuangdao/detail/1/
+    [空间特征可视化](http://dyanli.pythonanywhere.com/qinhuangdao/detail/1/)
+[矢量特征可视化](http://dyanli.pythonanywhere.com/qinhuangdao/draw/1/),
+[时间特征可视化](http://dyanli.pythonanywhere.com/qinhuangdao/show)
 
-### 3,矢量特征可视化
-http://dyanli.pythonanywhere.com/qinhuangdao/draw/1/
 
-### 4, 时间特征可视化
-http://dyanli.pythonanywhere.com/qinhuangdao/show
-
-### 5，相关论文
+2. 压缩算法论文
 http://journals.sagepub.com/doi/full/10.1177/1550147717692584
 
